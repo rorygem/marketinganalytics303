@@ -1,0 +1,71 @@
+---
+title: "Ad_Prediction"
+author: "ROHIT - 0811704"
+date: "`r Sys.Date()`"
+output: html_document
+---
+```{r}
+library(tidyverse)
+```
+
+importing both data set
+
+```{r}
+ad_prediction_test <- read.csv("C:\\Users\\rohit\\OneDrive\\Documents\\Capstone_Project\\Ad_Click_prediciton_test.csv")
+
+ad_prediction_train <- read.csv("C:\\Users\\rohit\\OneDrive\\Documents\\Capstone_Project\\Ad_click_prediction_train (1).csv")
+```
+
+-----------------************** Cleaning Data set **************-----------------
+
+The data is already divided into two segments which is test and train. The difference between these two data set is that the train data set have a column click_yes column that is basically that is used to train the model to predicts for test data set. 
+
+```{r}
+head(ad_prediction_test)
+```
+```{r}
+head(ad_prediction_train)
+```
+
+
+```{r}
+dim(ad_prediction_test)
+
+dim(ad_prediction_train)
+```
+
+Summary of data sets
+
+```{r}
+summary(ad_prediction_test)
+
+```
+
+```{r}
+summary(ad_prediction_train)
+```
+
+
+```{r}
+ad_prediction_train <-  ad_prediction_train %>% select(-c("product_category_2"))
+
+head(ad_prediction_train)
+
+```
+Because we are not using column "product_category_2" in our training data set we will also remove "product_category_2" in testing data set.
+
+```{r}
+ad_prediction_test <- ad_prediction_test %>% select(-c("product_category_2"))
+
+head(ad_prediction_test)
+```
+-----------------************** Cleaning Data set "ad_prediction_1" **************-----------------
+```{r}
+df <- ad_prediction_train
+```
+
+
+
+
+
+
